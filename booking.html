@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randevu Oluştur | Cutber</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+
+    <header class="booking-header">
+        <a href="index.html" class="booking-logo">CUTBER</a>
+        <a href="index.html" class="back-button">← Berberlere Dön</a>
+    </header>
+
+    <main class="booking-container">
+
+        <div class="booking-heading">
+            <p>CUTBER RANDEVU SİSTEMİ</p>
+            <h1>Randevunu Oluştur.</h1>
+            <p id="bookingShopName">Berber bilgileri yükleniyor...</p>
+        </div>
+
+        <section class="booking-section">
+            <h2>01 — Hizmet Seçimi</h2>
+            <div id="serviceOptions" class="booking-options"></div>
+        </section>
+
+        <section class="booking-section">
+            <h2>02 — Çalışan Seçimi</h2>
+            <div id="employeeOptions" class="booking-options"></div>
+        </section>
+
+        <section class="booking-section">
+            <h2>03 — Tarih Seçimi</h2>
+            <div id="dateOptions" class="booking-options"></div>
+        </section>
+
+        <section class="booking-section">
+            <h2>04 — Müsait Saatler</h2>
+            <div id="timeOptions" class="booking-options"></div>
+        </section>
+
+        <section class="booking-summary">
+            <h2>Randevu Özeti</h2>
+            <div id="bookingSummary">
+                Henüz seçim yapılmadı.
+            </div>
+
+            <button id="confirmBooking" disabled>
+                Randevuyu Onayla →
+            </button>
+        </section>
+
+    </main>
+
+    <script src="barbers.js"></script>
+    <script src="booking.js"></script>
+
+</body>
+</html>

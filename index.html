@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cutber - Berberini Bul</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- PREMIUM HERO -->
+
+    <section class="premium-hero">
+
+        <div class="hero-slider">
+
+            <div class="hero-slide slide-1"></div>
+            <div class="hero-slide slide-2"></div>
+            <div class="hero-slide slide-3"></div>
+            <div class="hero-slide slide-4"></div>
+            <div class="hero-slide slide-5"></div>
+
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content-new">
+
+            <div class="hero-brand">
+                CUTBER
+            </div>
+
+            <p class="hero-eyebrow">
+                PREMIUM BARBER EXPERIENCE
+            </p>
+
+            <h1>
+                Tarzını<br>
+                seç.
+            </h1>
+
+            <p>
+                Sana en uygun berberi bul.
+                Randevunu kolayca oluştur.
+            </p>
+
+            <button
+                class="hero-book-button"
+                onclick="document.getElementById('barber-list').scrollIntoView({behavior: 'smooth'})"
+            >
+                Randevu Al
+            </button>
+
+        </div>
+
+        <div class="hero-scroll">
+            SCROLL TO EXPLORE ↓
+        </div>
+
+    </section>
+
+
+    <nav class="navbar">
+
+    <div class="nav-top">
+        <div class="logo">CUTBER</div>
+
+        <div class="account-links">
+            <a href="#" onclick="openLogin(); return false;">Giriş Yap</a>
+            <button class="nav-register" onclick="openRegister()">Kayıt Ol</button>
+        </div>
+    </div>
+
+    <div class="nav-menu">
+        <a href="#how">Nasıl Çalışır?</a>
+        <a href="#advantages">Avantajlar</a>
+        <a href="#barbers">Berberler İçin</a>
+        <a href="#search">Berberini Bul</a>
+    </div>
+
+</nav>
+
+    <section class="hero" id="search">
+        <div class="hero-content">
+            <p class="eyebrow">TÜRKİYE'NİN BERBER PLATFORMU</p>
+
+            <h1>
+                Berberini bul.<br>
+                Randevunu al.
+            </h1>
+
+            <p class="hero-text">
+                Sana en yakın berberleri keşfet, fiyatları karşılaştır,
+                yorumları incele ve randevunu kolayca oluştur.
+            </p>
+
+            <div class="search-box">
+            <input type="text" id="searchLocation" placeholder="İl veya ilçe">
+            <input type="text" id="searchShop" placeholder="Dükkân adı ara">
+            <input type="text" id="searchService" placeholder="Hizmet ara">
+                <button onclick="searchBarber()">Berber Bul</button>
+            </div>
+
+            <p id="message"></p>
+        </div>
+
+        <div class="demo-card">
+            <div class="card-top">
+                <span>ÖNE ÇIKAN</span>
+                <span>★ 4.9</span>
+            </div>
+
+            <h3>Cut Barber Studio</h3>
+            <p>İstanbul · Kadıköy</p>
+
+            <div class="services">
+                <div>
+                    <span>Saç Kesimi</span>
+                    <strong>350 TL</strong>
+                </div>
+
+                <div>
+                    <span>Saç + Sakal</span>
+                    <strong>500 TL</strong>
+                </div>
+
+                <div>
+                    <span>Sakal</span>
+                    <strong>200 TL</strong>
+                </div>
+            </div>
+
+            <button onclick="document.getElementById('barberGrid')?.scrollIntoView({behavior: 'smooth', block: 'start'})">Randevu Al</button>
+        </div>
+    </section>
+
+<!-- BERBER LİSTELEME -->
+
+<section class="barber-list-section" id="barber-list">
+
+    <div class="barber-list-heading">
+        <p class="eyebrow">CUTBER KEŞFET</p>
+        <h2>Berberleri Keşfet.</h2>
+        <p>Konumuna ve istediğin hizmete göre berberleri incele.</p>
+    </div>
+
+    <div class="barber-filters">
+
+        <select id="cityFilter">
+            <option value="">Tüm Şehirler</option>
+        </select>
+
+        <select id="districtFilter">
+            <option value="">Tüm İlçeler</option>
+        </select>
+
+        <select id="serviceFilter">
+            <option value="">Tüm Hizmetler</option>
+            <option value="Saç Kesimi">Saç Kesimi</option>
+            <option value="Sakal Tıraşı">Sakal Tıraşı</option>
+            <option value="Saç + Sakal">Saç + Sakal</option>
+        </select>
+
+        <select id="sortFilter">
+            <option value="default">Önerilen Sıralama</option>
+            <option value="rating">En Yüksek Puan</option>
+            <option value="price">En Düşük Fiyat</option>
+        </select>
+
+    </div>
+
+    <p class="barber-result-count" id="barberCount"></p>
+
+    <div class="barber-grid" id="barberGrid"></div>
+
+</section>
+    <section class="how" id="how">
+        <div class="section-title">
+            <p class="eyebrow">NASIL ÇALIŞIR?</p>
+            <h2>Berber bulmak<br>bu kadar basit.</h2>
+        </div>
+
+        <div class="steps">
+            <div class="step">
+                <span>01</span>
+                <h3>Berberini bul</h3>
+                <p>
+                    Konumuna veya istediğin bölgeye göre berberleri keşfet.
+                </p>
+            </div>
+
+            <div class="step">
+                <span>02</span>
+                <h3>Karşılaştır</h3>
+                <p>
+                    Fiyatları, hizmetleri, puanları ve kullanıcı yorumlarını incele.
+                </p>
+            </div>
+
+            <div class="step">
+                <span>03</span>
+                <h3>Randevunu al</h3>
+                <p>
+                    Sana uygun tarih ve saati seçerek randevunu oluştur.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    
+
+
+    <section class="barber-section" id="barbers">
+        <div>
+            <p class="eyebrow">BERBERLER İÇİN</p>
+
+            <h2>
+                İşletmeni<br>
+                Cutber'a taşı.
+            </h2>
+
+            <p>
+                Randevularını yönet, müşterilerini artır
+                ve işletmeni dijital ortamda büyüt.
+            </p>
+
+            <button onclick="barberApplication()">
+                Berber Olarak Katıl
+            </button>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="dashboard-header">
+                <span>BUGÜN</span>
+                <strong>12 Randevu</strong>
+            </div>
+
+            <div class="appointment">
+                <span>14:00</span>
+                <div>
+                    <strong>Ahmet Yılmaz</strong>
+                    <small>Saç + Sakal</small>
+                </div>
+            </div>
+
+            <div class="appointment">
+                <span>15:30</span>
+                <div>
+                    <strong>Mehmet Kaya</strong>
+                    <small>Saç Kesimi</small>
+                </div>
+            </div>
+
+            <div class="appointment">
+                <span>17:00</span>
+                <div>
+                    <strong>Emre Demir</strong>
+                    <small>Sakal</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="logo">CUTBER</div>
+
+        <p>
+            Berberini bul. Randevunu al.
+        </p>
+
+        <div>
+            <a href="#">Hakkında</a>
+            <a href="#">KVKK</a>
+            <a href="#">Gizlilik</a>
+            <a href="#">İletişim</a>
+        </div>
+    </footer>
+
+
+    <!-- GİRİŞ / KAYIT PENCERESİ -->
+
+    <div class="auth-overlay" id="authOverlay" onclick="closeAuthOutside(event)">
+
+        <div class="auth-box" onclick="event.stopPropagation()">
+
+            <button class="auth-close" onclick="closeAuth()">×</button>
+
+
+            <!-- GİRİŞ -->
+
+            <div id="loginForm" class="auth-form">
+
+                <div class="auth-logo">CUTBER</div>
+
+                <h2>Tekrar hoş geldin.</h2>
+
+                <p class="auth-description">
+                    Cutber hesabına giriş yap.
+                </p>
+
+                <label>E-posta</label>
+                <input type="email" placeholder="ornek@mail.com">
+
+                <label>Şifre</label>
+                <input type="password" placeholder="••••••••">
+
+                <button class="auth-button" onclick="loginDemo()">
+                    Giriş Yap
+                </button>
+
+                <p class="auth-switch">
+                    Hesabın yok mu?
+                    <button onclick="showRegister()">Kayıt Ol</button>
+                </p>
+
+            </div>
+
+
+            <!-- KAYIT -->
+
+            <div id="registerForm" class="auth-form" style="display: none;">
+
+                <div class="auth-logo">CUTBER</div>
+
+                <h2>Hesap oluştur.</h2>
+
+                <p class="auth-description">
+                    Cutber'a ücretsiz katıl.
+                </p>
+
+                <label>Ad Soyad</label>
+                <input type="text" placeholder="Ad Soyad">
+
+                <label>Telefon</label>
+                <input type="tel" placeholder="05XX XXX XX XX">
+
+                <label>E-posta</label>
+                <input type="email" placeholder="ornek@mail.com">
+
+                <label>Şifre</label>
+                <input type="password" placeholder="En az 8 karakter">
+
+                <div class="checkbox-row">
+                    <input type="checkbox" id="terms">
+                    <label for="terms">
+                        Kullanım Koşullarını okudum ve kabul ediyorum.
+                    </label>
+                </div>
+
+                <div class="checkbox-row">
+                    <input type="checkbox" id="kvkk">
+                    <label for="kvkk">
+                        KVKK Aydınlatma Metnini okudum.
+                    </label>
+                </div>
+
+                <button class="auth-button" onclick="registerDemo()">
+                    Hesap Oluştur
+                </button>
+
+                <p class="auth-switch">
+                    Zaten hesabın var mı?
+                    <button onclick="showLogin()">Giriş Yap</button>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+<!-- CUTBER DÜKKÂN PROFİL EKRANI -->
+
+<div id="shopOverlay" class="shop-overlay" style="display: none;">
+    <div class="shop-profile">
+
+        <button class="shop-close" onclick="closeShop()">
+            ✕
+        </button>
+
+        <div id="shopProfileContent"></div>
+
+    </div>
+
+</div>
+    <script src="barbers.js"></script>
+    <script src="script.js"></script>
+
+    
+
+
